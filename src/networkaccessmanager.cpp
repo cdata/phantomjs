@@ -37,6 +37,7 @@
 
 #include "config.h"
 #include "cookiejar.h"
+#include "eventedcookiejar.h"
 #include "networkaccessmanager.h"
 
 static const char *toString(QNetworkAccessManager::Operation op)
@@ -72,9 +73,11 @@ NetworkAccessManager::NetworkAccessManager(QObject *parent, const Config *config
     , m_idCounter(0)
     , m_networkDiskCache(0)
 {
-    if (!config->cookiesFile().isEmpty()) {
-        setCookieJar(new CookieJar(config->cookiesFile()));
-    }
+    //if (!config->cookiesFile().isEmpty()) {
+        //setCookieJar(new CookieJar(config->cookiesFile()));
+    //} else {
+        setCookieJar(new EventedCookieJar());
+    //}
 
     if (config->diskCacheEnabled()) {
         m_networkDiskCache = new QNetworkDiskCache(this);

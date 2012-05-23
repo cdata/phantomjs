@@ -127,6 +127,8 @@ exports.create = function (opts) {
 
     defineSetter("onError", "javaScriptErrorSent");
 
+    defineSetter("onCookiesSet", "cookiesSet");
+
     page.onError = phantom.defaultErrorHandler;
 
     page.open = function (url, arg1, arg2, arg3, arg4) {

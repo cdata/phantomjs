@@ -37,6 +37,7 @@
 #include <QWebFrame>
 
 #include "replcompletable.h"
+#include "eventedcookiejar.h"
 
 class Config;
 class CustomPage;
@@ -111,6 +112,7 @@ signals:
     void javaScriptErrorSent(const QString &message, const QVariantList &backtrace);
     void resourceRequested(const QVariant &req);
     void resourceReceived(const QVariant &resource);
+    void cookiesSet();
 
 private slots:
     void finish(bool ok);
@@ -136,6 +138,7 @@ private:
     QVariantMap m_paperSize; // For PDF output via render()
     QString m_libraryPath;
     QWebInspector* m_inspector;
+    EventedCookieJar *m_cookieJar;
 
     friend class Phantom;
     friend class CustomPage;

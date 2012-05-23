@@ -18,6 +18,7 @@ HEADERS += csconverter.h \
     consts.h \
     utils.h \
     networkaccessmanager.h \
+    eventedcookiejar.h \
     cookiejar.h \
     filesystem.h \
     system.h \
@@ -36,6 +37,7 @@ SOURCES += phantom.cpp \
     csconverter.cpp \
     utils.cpp \
     networkaccessmanager.cpp \
+    eventedcookiejar.cpp \
     cookiejar.cpp \
     filesystem.cpp \
     system.cpp \
