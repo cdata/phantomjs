@@ -112,7 +112,7 @@ signals:
     void javaScriptErrorSent(const QString &message, const QVariantList &backtrace);
     void resourceRequested(const QVariant &req);
     void resourceReceived(const QVariant &resource);
-    void cookiesSet();
+    void cookiesSet(QString);
 
 private slots:
     void finish(bool ok);

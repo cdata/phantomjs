@@ -16,10 +16,10 @@ public:
     QList<QNetworkCookie> cookiesForUrl (const QUrl & url) const;
 
 public slots:
-    void setCookies();
+    void setCookies(const QString & url);
 
 signals:
-    void cookiesSet();
+    void cookiesSet(const QString & url);
 };
 
 #endif // EVENTEDCOOKIEJAR_H

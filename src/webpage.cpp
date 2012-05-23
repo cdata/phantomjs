@@ -157,7 +157,7 @@ WebPage::WebPage(QObject *parent, const Config *config, const QUrl &baseUrl)
 
 
     m_cookieJar = dynamic_cast<EventedCookieJar *>(m_networkAccessManager->cookieJar());
-    connect(m_cookieJar, SIGNAL(cookiesSet()), SIGNAL(cookiesSet()));
+    connect(m_cookieJar, SIGNAL(cookiesSet(QString)), SIGNAL(cookiesSet(QString)));
 
     m_webPage->setViewportSize(QSize(400, 300));
 }
