@@ -2,6 +2,7 @@
 #define EVENTEDCOOKIEJAR_H
 
 #include <QNetworkCookieJar>
+#include <QVariantMap>
 
 class EventedCookieJar: public QNetworkCookieJar
 {
@@ -16,10 +17,10 @@ public:
     QList<QNetworkCookie> cookiesForUrl (const QUrl & url) const;
 
 public slots:
-    void setCookies(const QString & url);
+    void setCookies(const QString & url, const QVariantMap & cookies);
 
 signals:
-    void cookiesSet(const QString & url);
+    void cookiesSet(const QString & url, const QVariantMap & cookies);
 };
 
 #endif // EVENTEDCOOKIEJAR_H

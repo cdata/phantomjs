@@ -46,6 +46,7 @@
 #include <QWebPage>
 #include <QWebInspector>
 #include <QMapIterator>
+#include <QVariantMap>
 
 #include "eventedcookiejar.h"
 #include "networkaccessmanager.h"
@@ -157,7 +158,7 @@ WebPage::WebPage(QObject *parent, const Config *config, const QUrl &baseUrl)
 
 
     m_cookieJar = dynamic_cast<EventedCookieJar *>(m_networkAccessManager->cookieJar());
-    connect(m_cookieJar, SIGNAL(cookiesSet(QString)), SIGNAL(cookiesSet(QString)));
+    connect(m_cookieJar, SIGNAL(cookiesSet(QString, QVariantMap)), SIGNAL(cookiesSet(QString, QVariantMap)));
 
     m_webPage->setViewportSize(QSize(400, 300));
 }
