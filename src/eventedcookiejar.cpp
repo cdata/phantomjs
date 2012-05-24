@@ -1,4 +1,5 @@
 #include <QVariantMap>
+#include <QDateTime>
 #include "eventedcookiejar.h"
 
 EventedCookieJar::EventedCookieJar() : QNetworkCookieJar() 
@@ -12,7 +13,14 @@ bool EventedCookieJar::setCookiesFromUrl(const QList<QNetworkCookie> & cookieLis
 
     for (QList<QNetworkCookie>::const_iterator i = cookieList.begin(); i != cookieList.end(); i++) {
 
-        cookies[QString((*i).name())] = QString((*i).value());
+        QDateTime expires = (*i).expirationDate();
+        QVariantMap details;
+
+        details["value"] = QString((*i).value());
+        details["expires"] = expires.toString();
+
+        cookies[QString((*i).name())] = details;
+        //cookies[QString((*i).name())] = QString((*i).value());
     }
 
     setCookies(url.host(), cookies);
